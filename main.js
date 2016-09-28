@@ -12,6 +12,21 @@
 			};
 		});
 
+		$(document).keyup(function(event) {
+			// TRIGGER THE KEY INTERACTION FUNCTIONS OF THE CURRENT CAROUSEL SECTION
+			// RIGHT ARROW INTERACTION (KEYCODE = 39)
+			if (event.keyCode == 39 ){
+				event.preventDefault();
+				Slider.next();
+			}
+
+			// LEFT ARROW INTERACTION (KEYCODE = 37)
+			if (event.keyCode == 37){
+				event.preventDefault();
+				Slider.prev();
+			}
+		});
+
 		Slider.init();
 	});
 
@@ -99,25 +114,25 @@
 						$('#slide-' + Slider.sectionActive).removeClass(currentSectionMove);
 						Slider.setStates(index);
 						Slider.canScroll = true;
-					}, (Slider.duration));
+					}, Slider.duration);
 
 				},100);
 
 			};
 		},
 
-		// Update the sections position according to goTo() function
+		// Update the sections position according to goTo(this_slide)
 		setStates: function(index){
 			Slider.sectionActive = index;
 		},
 
-		// Animate the pagination bars according to goTo() function
+		// Animate the pagination bars according. Functionality very similar as goTo() method
 		setBars: function(index){
 			// Declare variables to define the direction of the animations
 			var currentBarMove;
 			var newBarMove;
 
-			// Detect if user is going to the Next or prev project, sectionActive < index means Next
+			// Detect if user is going to the Next or Prev project, sectionActive < index means Next
 			if (Slider.sectionActive < index){
 				currentBarMove = 'right';
 				newBarMove = 'left';
@@ -143,6 +158,6 @@
 					$('#slider-projectBar-' + Slider.sectionActive).removeClass('active');
 					$('#slider-projectBar-' + Slider.sectionActive).removeClass(currentBarMove);
 				}, Slider.duration);
-			}, 50);
+			}, 100);
 		}
 	}

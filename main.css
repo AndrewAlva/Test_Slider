@@ -74,6 +74,11 @@
 		#slide-2{background-color: rgba(255,0,255,0.15);}
 		#slide-3{background-color: rgba(255,255,0,0.15);}
 		#slide-4{background-color: rgba(0,0,255,0.15);}
+		#slide-5{background-color: rgba(0,255,0,0.15);}
+		#slide-6{background-color: rgba(255,0,0,0.15);}
+		#slide-7{background-color: rgba(255,255,255,0.15);}
+		#slide-8{background-color: rgba(0,255,255,0.15);}
+		#slide-9{background-color: rgba(255,0,255,0.15);}
 		
 		.slides{
 			position: absolute;
@@ -132,7 +137,7 @@
 				position: absolute;
 				display: flex;
 				display: -webkit-inline-flex;
-				width: 550px;
+				width: 950px;
 				height: 5px;
 				margin: auto;
 				left: 0; right: 0;
@@ -142,7 +147,7 @@
 
 				#pagination li{
 					position: relative;
-					width: 19%;
+					width: 9%;
 					height: 100%;
 					overflow: hidden;
 					text-align: center;
@@ -201,7 +206,6 @@
 						}
 
 						#pagination li a .left{
-							display: block;
 							-webkit-transform: translateX(-102%);
 							   -moz-transform: translateX(-102%);
 							    -ms-transform: translateX(-102%);
@@ -210,7 +214,6 @@
 						}
 
 						#pagination li a .right{
-							display: block;
 							-webkit-transform: translateX(102%);
 							   -moz-transform: translateX(102%);
 							    -ms-transform: translateX(102%);
