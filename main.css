@@ -1,6 +1,7 @@
 /*regular style*/
 
 	html, body{
+		overflow: hidden;
 		background-color: #222222;
 		margin: 0;
 		padding: 0;
@@ -21,36 +22,6 @@
 		    margin: 0;
 		    padding: 0;
 		}
-
-			#pagination{
-				z-index: 1000000000;
-				position: absolute;
-				width: 100px;
-				height: 20px;
-				margin: auto;
-				left: 0; right: 0;
-				bottom: 50px;
-				padding: 0;
-			}
-
-				#pagination li{
-					position: relative;
-					width: 15%;
-					height: 100%;
-					text-align: center;
-					display: inline-block;
-					vertical-align: top;
-					zoom: 1; /* Fix for IE7 */
-					*display: inline; /* Fix for IE7 */
-					margin: 0;
-					padding: 0;
-					list-style-type: none;
-				}
-
-					#pagination li a{
-						display: block;
-					}
-
 
 			#controls{
 				z-index: 1000000000;
@@ -86,71 +57,167 @@
 
 /*page slider*/
 
-#pageSlider{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	margin: auto;
-	top: 0; right: 0; left: 0; bottom: 0;
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
-    border: 1px solid white;
-}
-
-	.slides{
+	#pageSlider{
 		position: absolute;
 		width: 100%;
 		height: 100%;
+		margin: auto;
+		top: 0; right: 0; left: 0; bottom: 0;
 		-webkit-box-sizing: border-box;
 		   -moz-box-sizing: border-box;
 		        box-sizing: border-box;
-
-	    background-color: rgba(255,255,255,0.15);
-	    text-align: center;
-	    display: none;
-	    -webkit-transition: all .6s ease;
-	       -moz-transition: all .6s ease;
-	        -ms-transition: all .6s ease;
-	         -o-transition: all .6s ease;
-	            transition: all .6s ease;
+	    border: 1px solid white;
 	}
+		
+		#slide-0{background-color: rgba(255,255,255,0.15);}
+		#slide-1{background-color: rgba(0,255,255,0.15);}
+		#slide-2{background-color: rgba(255,0,255,0.15);}
+		#slide-3{background-color: rgba(255,255,0,0.15);}
+		#slide-4{background-color: rgba(0,0,255,0.15);}
+		
+		.slides{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
 
-		.slides h1{
-			display: table-cell;
-			vertical-align: middle;
-			color: #fff;
-			font-weight: lighter;
+		    text-align: center;
+		    display: none;
+		    -webkit-transition: all .6s ease;
+		       -moz-transition: all .6s ease;
+		        -ms-transition: all .6s ease;
+		         -o-transition: all .6s ease;
+		            transition: all .6s ease;
 		}
 
-
-	.active{
-		display: table;
-		-webkit-transform: translateY(0);
-		   -moz-transform: translateY(0);
-		    -ms-transform: translateY(0);
-		     -o-transform: translateY(0);
-		        transform: translateY(0);
-	}
-
-	.up{
-		-webkit-transform: translateY(-100%);
-		   -moz-transform: translateY(-100%);
-		    -ms-transform: translateY(-100%);
-		     -o-transform: translateY(-100%);
-		        transform: translateY(-100%);	
-	}
-
-	.down{
-		-webkit-transform: translateY(100%);
-		   -moz-transform: translateY(100%);
-		    -ms-transform: translateY(100%);
-		     -o-transform: translateY(100%);
-		        transform: translateY(100%);	
-	}
+			.slides h1{
+				display: table-cell;
+				vertical-align: middle;
+				color: #fff;
+				font-weight: lighter;
+			}
 
 
+		#pageSlider .active{
+			display: table;
+			-webkit-transform: translateX(0);
+			   -moz-transform: translateX(0);
+			    -ms-transform: translateX(0);
+			     -o-transform: translateX(0);
+			        transform: translateX(0);
+		}
 
+		#pageSlider .up{
+			-webkit-transform: translateX(-100%);
+			   -moz-transform: translateX(-100%);
+			    -ms-transform: translateX(-100%);
+			     -o-transform: translateX(-100%);
+			        transform: translateX(-100%);	
+		}
+
+		#pageSlider .down{
+			-webkit-transform: translateX(100%);
+			   -moz-transform: translateX(100%);
+			    -ms-transform: translateX(100%);
+			     -o-transform: translateX(100%);
+			        transform: translateX(100%);	
+		}
+/*end page slider*/
+
+/*pagination nav*/
+	#pagination{
+				z-index: 1000000000;
+				position: absolute;
+				display: flex;
+				display: -webkit-inline-flex;
+				width: 550px;
+				height: 5px;
+				margin: auto;
+				left: 0; right: 0;
+				bottom: 50px;
+				padding: 0;
+			}
+
+				#pagination li{
+					position: relative;
+					width: 19%;
+					height: 100%;
+					overflow: hidden;
+					text-align: center;
+					display: inline-block;
+					vertical-align: top;
+					zoom: 1; /* Fix for IE7 */
+					*display: inline; /* Fix for IE7 */
+					padding: 0;
+					margin: 0% 0.5%;
+					-webkit-box-sizing: border-box;
+					   -moz-box-sizing: border-box;
+					        box-sizing: border-box;
+					list-style-type: none;
+				}
+
+					#pagination li a{
+						display: block;
+						width: 100%;
+						height: 100%;
+						overflow: hidden;
+						background-color: rgba(255,255,255,0.5);
+						-webkit-transition: all .6s ease;
+						   -moz-transition: all .6s ease;
+						    -ms-transition: all .6s ease;
+						     -o-transition: all .6s ease;
+						        transition: all .6s ease;
+					}
+
+					#pagination li a:hover{
+						background-color: rgba(255,255,255,0.8);
+					}
+
+						#pagination li a span{
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							left: 0;
+							display: none;
+							background-color: rgba(0,0,0,0.8);
+							-webkit-transform-origin: left;
+							transform-origin: left;
+							-webkit-transition: all .6s ease;
+							   -moz-transition: all .6s ease;
+							    -ms-transition: all .6s ease;
+							     -o-transition: all .6s ease;
+							        transition: all .6s ease;
+						}
+
+						#pagination li a .active{
+							display: block;
+							-webkit-transform: none;
+							   -moz-transform: none;
+							    -ms-transform: none;
+							     -o-transform: none;
+							        transform: none;
+						}
+
+						#pagination li a .left{
+							display: block;
+							-webkit-transform: translateX(-102%);
+							   -moz-transform: translateX(-102%);
+							    -ms-transform: translateX(-102%);
+							     -o-transform: translateX(-102%);
+							        transform: translateX(-102%);
+						}
+
+						#pagination li a .right{
+							display: block;
+							-webkit-transform: translateX(102%);
+							   -moz-transform: translateX(102%);
+							    -ms-transform: translateX(102%);
+							     -o-transform: translateX(102%);
+							        transform: translateX(102%);
+						}
+/*end pagination nav*/
 
 
 

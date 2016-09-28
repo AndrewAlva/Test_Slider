@@ -60,7 +60,7 @@
 		// Navigation function
 		goTo: function(index){
 			// Change of section only after any transition ends
-			if (Slider.canScroll) {
+			if (Slider.canScroll && Slider.sectionActive != index) {
 				// Turn on the flag to prevent overlapping section transitions
 				Slider.canScroll = false;
 
@@ -76,6 +76,9 @@
 					currentSectionMove = 'down';
 					newSectionMove = 'up';
 				};
+
+				// Style the nav bars of the project
+				Slider.setBars(index);
 
 				// Move the current section outside the space
 				$('#slide-' + Slider.sectionActive).addClass(currentSectionMove);
@@ -106,5 +109,40 @@
 		// Update the sections position according to goTo() function
 		setStates: function(index){
 			Slider.sectionActive = index;
+		},
+
+		// Animate the pagination bars according to goTo() function
+		setBars: function(index){
+			// Declare variables to define the direction of the animations
+			var currentBarMove;
+			var newBarMove;
+
+			// Detect if user is going to the Next or prev project, sectionActive < index means Next
+			if (Slider.sectionActive < index){
+				currentBarMove = 'right';
+				newBarMove = 'left';
+			} else if (Slider.sectionActive > index){
+				currentBarMove = 'left';
+				newBarMove = 'right';
+			};
+
+			// Move the current bar outside of its nav
+			$('#slider-projectBar-' + Slider.sectionActive).addClass(currentBarMove);
+
+			// Set the new bar in position to enter
+			$('#slider-projectBar-' + index).addClass(newBarMove);
+			$('#slider-projectBar-' + index).addClass('active');
+
+			// Make a tiny pause (100ms) until the new bar is in position
+			setTimeout(function(){
+				// Move the new bar to show it
+				$('#slider-projectBar-' + index).removeClass(newBarMove);
+
+				// Wait untill the new bar is in position, then disappear the old bar
+				setTimeout(function(){
+					$('#slider-projectBar-' + Slider.sectionActive).removeClass('active');
+					$('#slider-projectBar-' + Slider.sectionActive).removeClass(currentBarMove);
+				}, Slider.duration);
+			}, 50);
 		}
 	}
